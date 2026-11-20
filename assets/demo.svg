@@ -1,0 +1,177 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 440" width="800" height="440" role="img" aria-labelledby="title desc">
+<title id="title">Google Trends MCP demo</title>
+<desc id="desc">An agent calls get_daily_trends, get_search_metrics and get_trend_articles, picks the trend with the best opportunity score and collects three direct source URLs.</desc>
+<style>
+svg{--bg:#f2efe6;--soft:#e6e9f0;--ink:#1d2733;--mut:#47545f;--line:rgba(29,39,51,.16);--accent:#6247aa;--ok:#2e9457}
+@media (prefers-color-scheme:dark){svg{--bg:#0a1c2e;--soft:#15304a;--ink:#d9e8f4;--mut:#a3c2d8;--line:rgba(169,212,234,.18);--accent:#a48ef0;--ok:#5cc98a}}
+text{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace}
+.t13{font-size:13px}.t11{font-size:11px}.t10{font-size:10px}.b{font-weight:700}
+.cap{font-size:10px;letter-spacing:1.5px}
+.ink{fill:var(--ink)}.mut{fill:var(--mut)}.accent{fill:var(--accent)}.ok{fill:var(--ok)}
+.frame{fill:var(--bg);stroke:var(--line)}.bgfill{fill:var(--bg)}
+.pill{fill:var(--bg);stroke:var(--ink);stroke-width:1.4}
+.card{fill:var(--soft);fill-opacity:.45;stroke:var(--line)}
+.chip{fill:var(--bg);stroke:var(--line)}.rule{stroke:var(--line)}
+.accentfill{fill:var(--accent)}.mutfill{fill:var(--mut);fill-opacity:.55}
+.bar{transform-box:fill-box;transform-origin:left center}
+.tick{fill:none;stroke:var(--ok);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:19}
+.spin{fill:none;stroke:var(--accent);stroke-width:1.6;stroke-dasharray:20 12;transform-box:fill-box;transform-origin:center;animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes ka1{0.000%{transform:translateX(0)} 3.125%{transform:translateX(0);animation-timing-function:steps(82,end)} 16.250%{transform:translateX(639.6px)} 100.000%{transform:translateX(639.6px)}}
+.a1{transform:translateX(639.6px);animation:ka1 16.0s linear infinite}
+@keyframes ka2{0.000%{opacity:0} 1.250%{opacity:0} 1.875%{opacity:1} 20.000%{opacity:1} 20.625%{opacity:0} 100.000%{opacity:0}}
+.a2{opacity:0;animation:ka2 16.0s ease-out infinite}
+@keyframes ka3{0.000%{opacity:0;transform:translateX(-8px)} 18.125%{opacity:0;transform:translateX(-8px)} 20.312%{opacity:1;transform:translateX(0)} 100.000%{opacity:1;transform:translateX(0)}}
+.a3{opacity:1;transform:translateX(0);animation:ka3 16.0s ease-out infinite}
+@keyframes ka4{0.000%{opacity:0} 18.125%{opacity:0} 18.750%{opacity:1} 25.000%{opacity:1} 25.625%{opacity:0} 100.000%{opacity:0}}
+.a4{opacity:0;animation:ka4 16.0s ease-out infinite}
+@keyframes ka5{0.000%{stroke-dashoffset:19} 25.000%{stroke-dashoffset:19} 26.875%{stroke-dashoffset:0} 100.000%{stroke-dashoffset:0}}
+.a5{stroke-dashoffset:0;animation:ka5 16.0s ease-out infinite}
+@keyframes ka6{0.000%{opacity:0} 25.000%{opacity:0} 27.187%{opacity:1} 100.000%{opacity:1}}
+.a6{opacity:1;animation:ka6 16.0s ease-out infinite}
+@keyframes ka7{0.000%{opacity:0;transform:translateX(-8px)} 31.250%{opacity:0;transform:translateX(-8px)} 33.438%{opacity:1;transform:translateX(0)} 100.000%{opacity:1;transform:translateX(0)}}
+.a7{opacity:1;transform:translateX(0);animation:ka7 16.0s ease-out infinite}
+@keyframes ka8{0.000%{opacity:0} 31.250%{opacity:0} 31.875%{opacity:1} 40.625%{opacity:1} 41.250%{opacity:0} 100.000%{opacity:0}}
+.a8{opacity:0;animation:ka8 16.0s ease-out infinite}
+@keyframes ka9{0.000%{stroke-dashoffset:19} 40.625%{stroke-dashoffset:19} 42.500%{stroke-dashoffset:0} 100.000%{stroke-dashoffset:0}}
+.a9{stroke-dashoffset:0;animation:ka9 16.0s ease-out infinite}
+@keyframes ka10{0.000%{opacity:0} 40.625%{opacity:0} 42.812%{opacity:1} 100.000%{opacity:1}}
+.a10{opacity:1;animation:ka10 16.0s ease-out infinite}
+@keyframes ka11{0.000%{opacity:0;transform:translateX(-8px)} 49.375%{opacity:0;transform:translateX(-8px)} 51.562%{opacity:1;transform:translateX(0)} 100.000%{opacity:1;transform:translateX(0)}}
+.a11{opacity:1;transform:translateX(0);animation:ka11 16.0s ease-out infinite}
+@keyframes ka12{0.000%{opacity:0} 49.375%{opacity:0} 50.000%{opacity:1} 56.250%{opacity:1} 56.875%{opacity:0} 100.000%{opacity:0}}
+.a12{opacity:0;animation:ka12 16.0s ease-out infinite}
+@keyframes ka13{0.000%{stroke-dashoffset:19} 56.250%{stroke-dashoffset:19} 58.125%{stroke-dashoffset:0} 100.000%{stroke-dashoffset:0}}
+.a13{stroke-dashoffset:0;animation:ka13 16.0s ease-out infinite}
+@keyframes ka14{0.000%{opacity:0} 56.250%{opacity:0} 58.438%{opacity:1} 100.000%{opacity:1}}
+.a14{opacity:1;animation:ka14 16.0s ease-out infinite}
+@keyframes ka15{0.000%{opacity:0;transform:translateX(-8px)} 63.750%{opacity:0;transform:translateX(-8px)} 65.938%{opacity:1;transform:translateX(0)} 100.000%{opacity:1;transform:translateX(0)}}
+.a15{opacity:1;transform:translateX(0);animation:ka15 16.0s ease-out infinite}
+@keyframes ka16{0.000%{opacity:0} 25.000%{opacity:0} 27.187%{opacity:1} 100.000%{opacity:1}}
+.a16{opacity:1;animation:ka16 16.0s ease-out infinite}
+@keyframes ka17{0.000%{opacity:0} 25.000%{opacity:0} 27.187%{opacity:1} 100.000%{opacity:1}}
+.a17{opacity:1;animation:ka17 16.0s ease-out infinite}
+@keyframes ka18{0.000%{transform:scaleX(0)} 25.625%{transform:scaleX(0)} 29.375%{transform:scaleX(1)} 100.000%{transform:scaleX(1)}}
+.a18{transform:scaleX(1);animation:ka18 16.0s ease-out infinite}
+@keyframes ka19{0.000%{opacity:0} 25.938%{opacity:0} 28.125%{opacity:1} 100.000%{opacity:1}}
+.a19{opacity:1;animation:ka19 16.0s ease-out infinite}
+@keyframes ka20{0.000%{transform:scaleX(0)} 26.562%{transform:scaleX(0)} 30.312%{transform:scaleX(1)} 100.000%{transform:scaleX(1)}}
+.a20{transform:scaleX(1);animation:ka20 16.0s ease-out infinite}
+@keyframes ka21{0.000%{opacity:0} 26.875%{opacity:0} 29.062%{opacity:1} 100.000%{opacity:1}}
+.a21{opacity:1;animation:ka21 16.0s ease-out infinite}
+@keyframes ka22{0.000%{transform:scaleX(0)} 27.500%{transform:scaleX(0)} 31.250%{transform:scaleX(1)} 100.000%{transform:scaleX(1)}}
+.a22{transform:scaleX(1);animation:ka22 16.0s ease-out infinite}
+@keyframes ka23{0.000%{opacity:0} 40.625%{opacity:0} 42.812%{opacity:1} 100.000%{opacity:1}}
+.a23{opacity:1;animation:ka23 16.0s ease-out infinite}
+@keyframes ka24{0.000%{opacity:0} 40.625%{opacity:0} 42.812%{opacity:1} 100.000%{opacity:1}}
+.a24{opacity:1;animation:ka24 16.0s ease-out infinite}
+@keyframes ka25{0.000%{transform:scaleX(0)} 41.250%{transform:scaleX(0)} 45.000%{transform:scaleX(1)} 100.000%{transform:scaleX(1)}}
+.a25{transform:scaleX(1);animation:ka25 16.0s ease-out infinite}
+@keyframes ka26{0.000%{opacity:0} 41.562%{opacity:0} 43.750%{opacity:1} 100.000%{opacity:1}}
+.a26{opacity:1;animation:ka26 16.0s ease-out infinite}
+@keyframes ka27{0.000%{transform:scaleX(0)} 42.188%{transform:scaleX(0)} 45.938%{transform:scaleX(1)} 100.000%{transform:scaleX(1)}}
+.a27{transform:scaleX(1);animation:ka27 16.0s ease-out infinite}
+@keyframes ka28{0.000%{opacity:0} 42.500%{opacity:0} 44.688%{opacity:1} 100.000%{opacity:1}}
+.a28{opacity:1;animation:ka28 16.0s ease-out infinite}
+@keyframes ka29{0.000%{transform:scaleX(0)} 43.125%{transform:scaleX(0)} 46.875%{transform:scaleX(1)} 100.000%{transform:scaleX(1)}}
+.a29{transform:scaleX(1);animation:ka29 16.0s ease-out infinite}
+@keyframes ka30{0.000%{opacity:0} 45.625%{opacity:0} 47.812%{opacity:1} 100.000%{opacity:1}}
+.a30{opacity:1;animation:ka30 16.0s ease-out infinite}
+@keyframes ka31{0.000%{opacity:0} 56.250%{opacity:0} 58.438%{opacity:1} 100.000%{opacity:1}}
+.a31{opacity:1;animation:ka31 16.0s ease-out infinite}
+@keyframes ka32{0.000%{opacity:0;transform:translateX(-6px)} 56.250%{opacity:0;transform:translateX(-6px)} 58.438%{opacity:1;transform:translateX(0)} 100.000%{opacity:1;transform:translateX(0)}}
+.a32{opacity:1;transform:translateX(0);animation:ka32 16.0s ease-out infinite}
+@keyframes ka33{0.000%{opacity:0;transform:translateX(-6px)} 57.500%{opacity:0;transform:translateX(-6px)} 59.687%{opacity:1;transform:translateX(0)} 100.000%{opacity:1;transform:translateX(0)}}
+.a33{opacity:1;transform:translateX(0);animation:ka33 16.0s ease-out infinite}
+@keyframes ka34{0.000%{opacity:0;transform:translateX(-6px)} 58.750%{opacity:0;transform:translateX(-6px)} 60.938%{opacity:1;transform:translateX(0)} 100.000%{opacity:1;transform:translateX(0)}}
+.a34{opacity:1;transform:translateX(0);animation:ka34 16.0s ease-out infinite}
+@keyframes ka35{0.000%{opacity:0} 1.875%{opacity:1} 95.000%{opacity:1} 98.125%{opacity:0} 100.000%{opacity:0}}
+.a35{opacity:1;animation:ka35 16.0s linear infinite}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}.spin{opacity:0}}
+</style>
+<g class="a35">
+<rect x="1" y="1" width="798" height="438" rx="10" class="frame"/>
+<rect x="24" y="20" width="752" height="34" rx="17" class="pill"/>
+<text x="44" y="42" class="accent b">›</text>
+<text x="58" y="42" class="ink t13">Find what the US is searching for, check demand and get sources for the best topic</text>
+<g class="a1"><rect x="58" y="27" width="644" height="21" class="bgfill"/><rect x="58" y="29" width="7" height="16" class="accentfill a2"/></g>
+<g class="a3">
+<g class="a4"><circle cx="36" cy="92" r="5" class="spin"/></g>
+<path d="M30 92 l4 5 l8 -9" class="tick a5"/>
+<text x="52" y="96" class="accent b t13">get_daily_trends</text>
+<text x="52" y="115" class="mut t11">geo=&quot;US&quot;, sort=&quot;volume&quot;, limit=3</text>
+</g>
+<text x="52" y="136" class="ink t11 a6">→ 10 trending now · top 3 by volume</text>
+<g class="a7">
+<g class="a8"><circle cx="36" cy="178" r="5" class="spin"/></g>
+<path d="M30 178 l4 5 l8 -9" class="tick a9"/>
+<text x="52" y="182" class="accent b t13">get_search_metrics</text>
+<text x="52" y="201" class="mut t11">3 keywords, timeframe=&quot;today 3-m&quot;</text>
+</g>
+<text x="52" y="222" class="ink t11 a10">→ best: players era tournament · 60 · rising</text>
+<g class="a11">
+<g class="a12"><circle cx="36" cy="264" r="5" class="spin"/></g>
+<path d="M30 264 l4 5 l8 -9" class="tick a13"/>
+<text x="52" y="268" class="accent b t13">get_trend_articles</text>
+<text x="52" y="287" class="mut t11">trend=&quot;players era tournament&quot;</text>
+</g>
+<text x="52" y="308" class="ink t11 a14">→ 3 articles · direct publisher URLs</text>
+<g class="a15">
+<text x="30" y="378" class="ok b t13">✓</text>
+<text x="52" y="378" class="ink b t13">Topic: players era tournament</text>
+<text x="52" y="398" class="mut t11">3 source URLs, ready for the writing tool</text>
+</g>
+<rect x="410" y="76" width="366" height="344" rx="6" class="card"/>
+<text x="428" y="102" class="mut cap a16">TRENDING NOW · US</text>
+<g class="a17">
+<text x="428" y="126" class="ink t11">toyota recalls</text>
+<text x="758" y="126" class="mut t11" text-anchor="end">20000+</text>
+</g>
+<rect x="604" y="118" width="100.0" height="8" rx="1.5" class="mutfill bar a18"/>
+<g class="a19">
+<text x="428" y="148" class="ink t11">players era tournament</text>
+<text x="758" y="148" class="mut t11" text-anchor="end">10000+</text>
+</g>
+<rect x="604" y="140" width="50.0" height="8" rx="1.5" class="mutfill bar a20"/>
+<g class="a21">
+<text x="428" y="170" class="ink t11">selena gomez</text>
+<text x="758" y="170" class="mut t11" text-anchor="end">1000+</text>
+</g>
+<rect x="604" y="162" width="5.0" height="8" rx="1.5" class="mutfill bar a22"/>
+<line x1="428" y1="194" x2="758" y2="194" class="rule"/>
+<text x="428" y="218" class="mut cap a23">OPPORTUNITY SCORE</text>
+<g class="a24">
+<text x="428" y="242" class="accent b t11">players era tournament</text>
+<text x="758" y="242" class="accent b t11" text-anchor="end">60</text>
+</g>
+<rect x="604" y="234" width="60" height="8" rx="1.5" class="accentfill bar a25"/>
+<g class="a26">
+<text x="428" y="264" class="ink t11">selena gomez</text>
+<text x="758" y="264" class="mut t11" text-anchor="end">52</text>
+</g>
+<rect x="604" y="256" width="52" height="8" rx="1.5" class="mutfill bar a27"/>
+<g class="a28">
+<text x="428" y="286" class="ink t11">toyota recalls</text>
+<text x="758" y="286" class="mut t11" text-anchor="end">41</text>
+</g>
+<rect x="604" y="278" width="41" height="8" rx="1.5" class="mutfill bar a29"/>
+<text x="712" y="242" class="ok t10 a30" text-anchor="end">▲ rising</text>
+<line x1="428" y1="310" x2="758" y2="310" class="rule"/>
+<text x="428" y="334" class="mut cap a31">SOURCES</text>
+<g class="a32">
+<rect x="428" y="345" width="142" height="18" rx="9" class="chip"/>
+<text x="438" y="358" class="accent t11">fightingirish.com ↗</text>
+<text x="758" y="358" class="mut t11" text-anchor="end">Notre Dame Fighting Irish</text>
+</g>
+<g class="a33">
+<rect x="428" y="367" width="70" height="18" rx="9" class="chip"/>
+<text x="438" y="380" class="accent t11">al.com ↗</text>
+<text x="758" y="380" class="mut t11" text-anchor="end">AL.com</text>
+</g>
+<g class="a34">
+<rect x="428" y="389" width="116" height="18" rx="9" class="chip"/>
+<text x="438" y="402" class="accent t11">247sports.com ↗</text>
+<text x="758" y="402" class="mut t11" text-anchor="end">247Sports</text>
+</g>
+</g>
+</svg>

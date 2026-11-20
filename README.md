@@ -12,6 +12,11 @@ collect the source articles behind a trend, all before writing a single word.
 Built for a daily blogging workflow (pick a topic → validate demand → gather
 sources → hand them to a writing/publishing tool), but the tools are generic.
 
+<p align="center">
+  <img src="assets/demo.svg" width="800" alt="An agent calls get_daily_trends, get_search_metrics and get_trend_articles, picks the trend with the best opportunity score and collects three direct source URLs">
+</p>
+<p align="center"><sub>Real data from a run on 2026-11-20 (US). Regenerate with <code>python tools/make_demo.py</code>.</sub></p>
+
 Google has **no official Trends API**. This server uses two public paths:
 
 | Tool | Source | Returns |
