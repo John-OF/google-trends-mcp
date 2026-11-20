@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "g-trends": {
+      "command": "<path-to-repo>/.venv/Scripts/python.exe",
+      "args": ["<path-to-repo>/server.py"]
+    }
+  }
+}

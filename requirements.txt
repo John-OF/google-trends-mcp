@@ -1,0 +1,12 @@
+# --- MCP framework ---
+fastmcp>=2.10,<3.0
+
+# --- HTTP client (feed RSS de Google Trends) ---
+httpx>=0.27
+
+# --- Google Trends: Interest Over Time / Related Queries ---
+pytrends>=4.9.2
+
+# pytrends depende de pandas y requests; se fijan minimos por reproducibilidad
+pandas>=2.2
+requests>=2.32
